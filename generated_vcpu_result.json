@@ -1,0 +1,11 @@
+[
+    {
+        "uuid": "00060c61-27ab-03e5-0000-000000010315",
+        "max_cpu_usage": "34.26 %",
+        "phy_cores": "160",
+        "num_hosts": "4",
+        "name": "PHX-POC315",
+        "num_vms": 30,
+        "num_vcpus": 161
+    }
+]
