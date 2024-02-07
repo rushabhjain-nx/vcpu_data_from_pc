@@ -21,6 +21,9 @@ pip3 install -r requirements.txt
 ## Usage
 
 1. Run the Python script:
+python3 vcpu_weekly.py
+
+
 2. Open `output.html` in a browser to view the data.
 
 ## Contributing
