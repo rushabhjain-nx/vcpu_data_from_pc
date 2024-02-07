@@ -1,7 +1,7 @@
 [
     {
         "uuid": "00060c61-27ab-03e5-0000-000000010315",
-        "max_cpu_usage": "34.26 %",
+        "max_cpu_usage": "29.04 %",
         "phy_cores": "160",
         "num_hosts": "4",
         "name": "PHX-POC315",
