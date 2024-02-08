@@ -4,11 +4,11 @@ A useful script to get vCPU ratio data from PC v3 API
 
 ## Installation
 
-1. Install Python 3 on your machine.
-2. Clone this repository:
+1. Install Python 3.8 >= on your machine.
+2. Clone this repository or download zip
 3. Navigate to the cloned directory:
-4. Create and activate a virtual environment (optional but recommended):
-python3 -m venv venv
+cd vcpu_data_from_pc  
+4. Activate a virtual environment :
 source venv/bin/activate
 5. Install the required Python packages:
 pip3 install -r requirements.txt
