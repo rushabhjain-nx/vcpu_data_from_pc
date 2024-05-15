@@ -43,12 +43,12 @@ def get_report(pc_creds):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         request_headers = {"Content-Type": "application/json", "charset": "utf-8"}
         
-        request_body = {"kind": "report_config", "length": 10}
+        request_body = {"kind": "report_config", "length": 500}
         result = requests.post(endpoint,data=json.dumps(request_body), headers=request_headers,auth=(user, passw), verify=False)
         
         if result.status_code!=200:
              print("ERROR IN POST REQUEST FOR CONFIG GET_REPORT FUNCTION!")
-             return
+             return None
         rc_uuid=""
       
         #GETTING THE REPORT CONFIG UUID
@@ -61,11 +61,11 @@ def get_report(pc_creds):
         instances=[]
         endpoint=f"https://{PC_IP}:9440/api/nutanix/v3/report_instances/list"
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        request_body = {"kind": "report_instance", "length": 50}
+        request_body = {"kind": "report_instance", "length": 500}
         result = requests.post(endpoint, data=json.dumps(request_body),headers=request_headers,auth=(user, passw), verify=False)
         if result.status_code!=200:
              print("ERROR IN POST REQUEST FOR INSTANCE GET_REPORT FUNCTION!")
-             return
+             return None
        
         #GETTING THE INSTANCE UUID
         for obj in result.json()["entities"]:
@@ -87,7 +87,7 @@ def get_report(pc_creds):
         response = requests.get(endpoint,auth=(user, passw),headers=headers,verify=False)
         if result.status_code!=200:
              print("ERROR IN GET REQUEST FOR DOWNLOADING FILES IN  GET_REPORT FUNCTION!")
-             return
+             return None
         file_inst = "downloaded_report_instance.zip"
         
         with open(file_inst, 'wb') as file:
@@ -98,7 +98,8 @@ def get_report(pc_creds):
         with zipfile.ZipFile("downloaded_report_instance.zip", 'r') as zip_ref:
             zip_ref.extractall("downloaded_report_instance")
 
-        
+        #print("Downloaded files are extracted in downloaded_report_instance folder!")
+        return 1
 def main():
     output_file = "templates/output.html"
     lt = html_loader_template
@@ -120,7 +121,9 @@ def main():
       #      for row in csv_reader:
       #          pc_creds = row
     final_data=[]
-    get_report(pc_creds)
+    res = get_report(pc_creds)
+    if res==None:
+         return
     
     max_cpu_usage_file = "downloaded_report_instance/Weekly_Max_CPU_Usage.csv/1_max_cpu_usage.csv"
     vms_vcpu_file = "downloaded_report_instance/Weekly_Max_CPU_Usage.csv/2_VMS_VCPU_DATA.csv"

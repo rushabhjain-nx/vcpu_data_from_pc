@@ -1,11 +1,20 @@
 [
     {
-        "uuid": "00060c61-27ab-03e5-0000-000000010315",
-        "max_cpu_usage": "29.04 %",
-        "phy_cores": "160",
+        "uuid": "00061705-27a4-9d15-0000-00000001788a",
+        "max_cpu_usage": "47.38 %",
+        "phy_cores": "128",
         "num_hosts": "4",
+        "name": "PHX-POC313",
+        "num_vms": 980,
+        "num_vcpus": 1078
+    },
+    {
+        "uuid": "00060c61-27ab-03e5-0000-000000010315",
+        "max_cpu_usage": "83.59 %",
+        "phy_cores": "120",
+        "num_hosts": "3",
         "name": "PHX-POC315",
-        "num_vms": 30,
-        "num_vcpus": 161
+        "num_vms": 101,
+        "num_vcpus": 487
     }
 ]
